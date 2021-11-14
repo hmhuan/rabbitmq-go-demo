@@ -1,7 +1,9 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
+	"os"
 
 	"github.com/streadway/amqp"
 )
@@ -37,9 +39,15 @@ func main() {
 		panic(err)
 	}
 
-	for {
-		fmt.Scanf("%s", &input)
+	scanner := bufio.NewScanner(os.Stdin)
+
+	fmt.Print("> ")
+	for scanner.Scan() {
+
+		input = scanner.Text()
+
 		if input == "exit" {
+			fmt.Println("Exiting...")
 			break
 		}
 		fmt.Println("Sending message:", input)
@@ -59,7 +67,7 @@ func main() {
 			panic(err)
 		}
 		fmt.Println("Message published: ", input)
+		fmt.Print("> ")
 	}
-
-	fmt.Println("Exiting...")
+	fmt.Println("Bye bye")
 }
