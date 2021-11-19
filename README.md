@@ -7,5 +7,12 @@
 
 Have fun!!
 
+## Tutorial
+- hello-word: demo simple hello world with rabbitmq
+    - go run hello-word/receive.go
+    - go run hello-word/send.go
+
+- work-queue: demo work queue with rabbitmq
+
 Reference:
 - https://www.rabbitmq.com/tutorials/tutorial-one-go.html
